@@ -5,11 +5,11 @@ export const protectRoute = async (req, res, next) => {
     try {
 
         const rawCookies = req.headers.cookie
-        if(!rawCookies){
-            return res.status(401).json({error:"Unauthorized: No Cookies Provided"})
+        if (!rawCookies) {
+            return res.status(401).json({ error: "Unauthorized: No Cookies Provided" })
         }
 
-        const cookies  = Object.fromEntries(
+        const cookies = Object.fromEntries(
             rawCookies.split("; ").map(cookie => cookie.split("="))
         )
 
